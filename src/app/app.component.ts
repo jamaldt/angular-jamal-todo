@@ -11,4 +11,12 @@ export class AppComponent {
   onClickMe() {
     this.clickMessage = 'Empezamos!';
   }
+
+  values = '';
+  value = '';
+  onKey(event: any) { // without type info
+    this.values += event.target.value + ' | ';
+  }
+ 
+  onEnter(value: string) { this.value = value; }
 }
