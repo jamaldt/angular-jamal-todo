@@ -11,8 +11,4 @@ export class TodoListComponent implements OnInit {
   value = '';
   ngOnInit() {
   }
-
-  addTodo(value: string){
-    alert('empezamos');
-  }
 }
