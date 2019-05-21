@@ -1,5 +1,16 @@
 <input #newTodo
    placeholder="Tareas que necesitan ser terminadas" 
-   (keyup.enter)="addTodo(newTodo.value)">
+   (keyup.enter)="saveTodo(newTodo.value)">
   
-   <ul><li *ngFor="let todo of todos">{{todo}}</li></ul>
+   <table class="table table-striped" *ngIf="todos && todos.length > 0">
+      <thead></thead>
+      <tbody>
+          <tr *ngFor="let todo of todos, let index = index">
+              <td><input type="checkbox" [checked]="todo.done" (change)="checkedDone(index)" /></td>
+              <td [ngClass]="{'done': todo.done, 'not-done': !todo.done}">{{todo}}</td>
+              <td>
+                  <button class="btn btn-danger" (click)="handleDeleteClick(todo.id, index)">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+    </table>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../services/todo.service';
+import { Todo } from '../models/todo';
 
 @Component({
   selector: 'app-todo-form',
@@ -7,15 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoFormComponent implements OnInit {
 
-  constructor() { }
+  constructor( private todoService:TodoService) { }
 
   ngOnInit() {
   }
 
   todos = [];
-  addTodo(newTodo: string) {
+  createMode: boolean = true;
+  saveTodo(newTodo: string) {
     if (newTodo) {
       this.todos.push(newTodo);
     }
+  }
+
+  checkedDone(index: number) {
+    const newDoneValue = !this.todos[index].done
+    this.todos[index].done = newDoneValue;
+    const obj = { done: newDoneValue };
+    const id = this.todos[index].id
+    this.todoService.editTodoPartial(id, obj);
   }
 }

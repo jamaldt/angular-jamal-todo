@@ -1,17 +1,2 @@
-<h1>Mi formulario</h1>
-<button (click)="onClickMe()">Click me! </button>
-{{clickMessage}} 
-
-<h2>presionando letras </h2>
-<input (keyup)="onKey($event)">
-  <p>{{values}}</p>
-
-<h2>Con enter</h2>
-<input #box (keyup.enter)="onEnter(box.value)">
-    <p>{{value}}</p>
-<br>
-
-<h2>componente form </h2>
+<h2>todos</h2>
 <app-todo-form></app-todo-form>
-<h2>componente list </h2>
-<app-todo-list></app-todo-list>
