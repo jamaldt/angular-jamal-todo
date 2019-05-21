@@ -7,5 +7,7 @@
   <p>{{values}}</p>
 
 <h2>Con enter</h2>
-<input #box (keyup.enter)="onEnter(box.value)">
+<input (keyup.enter)="onEnter(box.value)">
     <p>{{value}}</p>
+<br>
+<app-todo-list></app-todo-list>

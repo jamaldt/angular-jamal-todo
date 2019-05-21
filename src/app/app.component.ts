@@ -14,6 +14,7 @@ export class AppComponent {
 
   values = '';
   value = '';
+  
   onKey(event: any) { // without type info
     this.values += event.target.value + ' | ';
   }
