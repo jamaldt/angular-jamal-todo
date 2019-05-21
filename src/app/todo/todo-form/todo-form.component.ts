@@ -12,7 +12,10 @@ export class TodoFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTodo(value: string){
-    alert('empezamos');
+  todos = [];
+  addTodo(newTodo: string) {
+    if (newTodo) {
+      this.todos.push(newTodo);
+    }
   }
 }

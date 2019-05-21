@@ -1,1 +1,5 @@
-<input placeholder="Tareas que necesitan ser terminadas" (keyup.enter)="addTodo()">
+<input #newTodo
+   placeholder="Tareas que necesitan ser terminadas" 
+   (keyup.enter)="addTodo(newTodo.value)">
+  
+   <ul><li *ngFor="let todo of todos">{{todo}}</li></ul>
