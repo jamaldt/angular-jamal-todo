@@ -1,3 +1,23 @@
+<section class="todoapp">
+
+    <header class="header">
+      <h1>Todo</h1>
+      <input #newTodo 
+             placeholder="Tareas que necesitan ser terminadas" 
+            (keyup.enter)="add(newTodo.value)">
+    </header>
+    <section class="main" *ngIf="todos && todos.length > 0" >
+        <ul class="todo-list"  *ngFor="let todo of todos, let index = index">
+          <li class="completed">
+            <div class="view">
+              <input class="toggle" type="checkbox">
+              <label>{{todo}}</label>
+              <button class="destroy" (click)="remove(todo)">Delete</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+<!-- 
 <input #newTodo
    placeholder="Tareas que necesitan ser terminadas" 
    (keyup.enter)="add(newTodo.value)">
@@ -14,3 +34,4 @@
           </tr>
       </tbody>
     </table>
+-->

@@ -33,7 +33,7 @@ export class TodoFormComponent implements OnInit {
     }
   
     remove(i: string) : void {
-      var index =i;
+      var index = this.todos.indexOf(name, 0);
       if (index !== undefined) {
          this.todos.splice(index, 1);
       }
