@@ -8,25 +8,34 @@ import { Todo } from '../models/todo';
   styleUrls: ['./todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit {
-
-  constructor( private todoService:TodoService) { }
+  
+  createMode: boolean = true;
+  newTodo: string;
+  todos: any;
+  todoObj: any;
+  constructor( private todoService:TodoService) {
+    this.newTodo = '';
+      this.todos = [];
+   }
 
   ngOnInit() {
   }
 
-  todos = [];
-  createMode: boolean = true;
+  
   saveTodo(newTodo: string) {
     if (newTodo) {
       this.todos.push(newTodo);
     }
   }
-
-  checkedDone(index: number) {
-    const newDoneValue = !this.todos[index].done
-    this.todos[index].done = newDoneValue;
-    const obj = { done: newDoneValue };
-    const id = this.todos[index].id
-    this.todoService.editTodoPartial(id, obj);
-  }
+  add(newtodo: string) : boolean {
+    this.todos.push(newtodo);
+    return false;
+    }
+  
+    remove(i: string) : void {
+      var index =i;
+      if (index !== undefined) {
+         this.todos.splice(index, 1);
+      }
+    }
 }
