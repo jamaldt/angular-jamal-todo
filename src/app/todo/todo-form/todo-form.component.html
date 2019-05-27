@@ -1,14 +1,18 @@
 <section class="todoapp">
 
     <header class="header">
-      <h1>Jamal Todo</h1>
-      <input #newTodo 
-             placeholder="Tareas que necesitan ser terminadas" 
-            (keyup.enter)="add(newTodo.value)">
-    </header>
+        <h1>Jamal Todo</h1>
+        <input id="newTodo"
+        class="new-todo" 
+        placeholder="Tareas que necesitan ser terminadas" 
+        [(ngModel)]="newTodo"
+        (keyup.enter)="add(newTodo)"
+        autofocus>
+      </header>
+
     <section class="main" *ngIf="todos && todos.length > 0" >
         <ul class="todo-list"  *ngFor="let todo of todos, let index = index">
-          <li class="completed">
+          <li>
             <div class="view">
               <input class="toggle" type="checkbox">
               <label>{{todo}}</label>
@@ -17,6 +21,7 @@
           </li>
         </ul>
       </section>
+</section>
 <!-- 
 <input #newTodo
    placeholder="Tareas que necesitan ser terminadas" 

@@ -13,6 +13,8 @@ export class TodoFormComponent implements OnInit {
   newTodo: string;
   todos: any;
   todoObj: any;
+  taskValue: string = "";
+  
   constructor( private todoService:TodoService) {
     this.newTodo = '';
       this.todos = [];
@@ -21,14 +23,20 @@ export class TodoFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  clear(){
+    this.newTodo = '';
+  }
   
   saveTodo(newTodo: string) {
     if (newTodo) {
       this.todos.push(newTodo);
+      this.newTodo = '';
     }
   }
+
   add(newtodo: string) : boolean {
     this.todos.push(newtodo);
+    this.newTodo = '';
     return false;
     }
   
