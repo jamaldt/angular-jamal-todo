@@ -12,15 +12,19 @@
 
     <section class="main" *ngIf="todos && todos.length > 0" >
         <ul class="todo-list"  *ngFor="let todo of todos, let index = index">
-          <li>
+          <li [ngClass]="{completed: todo.isDone}">
             <div class="view">
-              <input class="toggle" type="checkbox">
+                <input class="toggle" type="checkbox" [checked]="todo.done" (change)="checkedDone(index)">
               <label>{{todo}}</label>
-              <button class="destroy" (click)="remove(todo)">Delete</button>
+              <button class="destroy" (click)="remove(todo)"></button>
             </div>
           </li>
         </ul>
       </section>
+
+      <footer class="footer">
+       <span class="todo-count"><strong>{{items}}</strong> item left</span>
+       </footer>
 </section>
 <!-- 
 <input #newTodo

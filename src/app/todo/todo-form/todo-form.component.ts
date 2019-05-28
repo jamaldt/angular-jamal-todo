@@ -14,6 +14,8 @@ export class TodoFormComponent implements OnInit {
   todos: any;
   todoObj: any;
   taskValue: string = "";
+  items:any;
+  
   
   constructor( private todoService:TodoService) {
     this.newTodo = '';
@@ -23,10 +25,7 @@ export class TodoFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  clear(){
-    this.newTodo = '';
-  }
-  
+
   saveTodo(newTodo: string) {
     if (newTodo) {
       this.todos.push(newTodo);
