@@ -23,4 +23,19 @@ export class TodoService {
     return this;
   }
  
+  deleteTodoById(id: number): TodoService {
+    const index = this.todos.findIndex(todo => todo.id == id)
+    this.todos.splice(index,1);
+      ///.filter(todo => todo.id !== id);
+    return this;
+  }
+
+  toggleTodoComplete(todo: Todo) {
+    let updatedTodo = this.todos[todo.id].id
+    return updatedTodo;
+  }
+  
+  getAllTodos(): Todo[] {
+    return this.todos;
+  }
 }

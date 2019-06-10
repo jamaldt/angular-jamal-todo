@@ -1,29 +1,27 @@
 <section class="todoapp">
 
-        <header class="header">
-            <h1>Jamal Todo</h1>
-            <input id="newTodo"
-            class="new-todo" 
-            placeholder="Tareas que necesitan ser terminadas" 
-            [(ngModel)]="newTodo"
-            (keyup.enter)="add(newTodo)"
-            autofocus>
-          </header>
-    
-        <section class="main" *ngIf="todos && todos.length > 0" >
-            <ul class="todo-list"  *ngFor="let todo of todos, let index = index">
-              <li [ngClass]="{completed: isCheck}">
-                <div class="view">
-                    <input class="toggle" type="checkbox" (change)="isCheck = !isCheck">
-                    <label>{{todo}}</label>
-                    <button class="destroy" (click)="remove(todo)"></button>
-                </div>
-              </li>
-            </ul>
-          </section>
-    
+        <section class="todoapp">
+                <header class="header">
+                  <h1>Jamal Todo</h1>
+                  <input class="new-todo" 
+                  placeholder="Tareas que necesitan ser terminadas" 
+                  [(ngModel)]="newTodo.title" 
+                  (keyup.enter)="add()"
+                  autofocus>
+                </header>
+                <section class="main" *ngIf="todos && todos.length > 0" >
+                        <ul class="todo-list"  *ngFor="let todo of todos, let index = index">
+                          <li [ngClass]="{completed: isCheck}">
+                            <div class="view">
+                                <input class="toggle" type="checkbox" (change)="isCheck = !isCheck">
+                                <label>{{todo.title}}</label>
+                                <button class="destroy" (click)="remove(todo)"></button>
+                            </div>
+                          </li>
+                        </ul>
+                      </section>
           <footer class="footer">
-           <span class="todo-count"><strong>{{items}}</strong> item left</span>
+                <span class="todo-count"><strong>{{task}}</strong> item left</span>
            </footer>
     </section>
     <!-- 

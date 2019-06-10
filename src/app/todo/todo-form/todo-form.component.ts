@@ -10,39 +10,39 @@ import { Todo } from '../models/todo';
 export class TodoFormComponent implements OnInit {
   
   createMode: boolean = true;
-  newTodo: string;
+  newTodo: Todo = new Todo();
   todos: any;
-  todoObj: any;
-  taskValue: string = "";
   items:any;
   
-  
   constructor( private todoService:TodoService) {
-    this.newTodo = '';
-      this.todos = [];
-   }
+     }
 
   ngOnInit() {
+    this.loadAllTodoList();
   }
 
-
-  saveTodo(newTodo: string) {
-    if (newTodo) {
-      this.todos.push(newTodo);
-      this.newTodo = '';
-    }
+  loadAllTodoList() {
+    this.todos = this.todoService.getAllTodos();
   }
 
-  add(newtodo: string) : boolean {
-    this.todos.push(newtodo);
-    this.newTodo = '';
-    return false;
+  add(){
+    this.todoService.addTodo(this.newTodo);
+    this.newTodo = new Todo();
     }
-  
-    remove(i: string) : void {
-      var index = this.todos.indexOf(name, 0);
-      if (index !== undefined) {
-         this.todos.splice(index, 1);
-      }
-    }
+
+  remove(todo): void {
+    this.todoService.deleteTodoById(todo.id)
+  }
+/*
+  remove(todoId: number, index: number) : void {
+    this.todoService.deleteTodoById(todoId)
+      .then(() => {
+        this.todos.splice(index, 1);
+      })
+      .catch(err => console.error(err));
+  }
+ */
+  toggleTodoComplete(todo) {
+    this.todoService.toggleTodoComplete(todo);
+  }
 }
