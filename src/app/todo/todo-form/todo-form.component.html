@@ -20,7 +20,7 @@
                           </li>
                         </ul>
                       </section>
-          <footer class="footer">
-                <span class="todo-count"><strong>tareas</strong> item left</span>
+           <footer class="footer"  *ngIf="todos.length > 0">
+              <span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'Item Pendiente' : 'Items Pendientes'}}</span>
            </footer>
     </section>
