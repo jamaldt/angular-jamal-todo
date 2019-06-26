@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AngularFirestoreModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
